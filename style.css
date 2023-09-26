@@ -8,4 +8,19 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #212428;
+  background-color: #dee2e8;
+}
+
+ul, 
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background-color: initial;
+  border: none;
 }
