@@ -11,6 +11,9 @@ body {
   font-size: 16px;
   color: #212428;
   background-color: #dee2e8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ul, 
@@ -18,9 +21,91 @@ ol {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 button {
   font: inherit;
   color: inherit;
   background-color: initial;
-  border: none;
+  border: initial;
+  cursor: pointer;
 }
+
+input {
+  font: inherit;
+  color: inherit;
+  border: initial;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(45deg, #396adc, #264ca6);
+  height: 180px;
+  overflow: hidden;
+}
+.background__pattern {
+  opacity: .7;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  color: #fff;
+}
+.header__separator {
+  margin: 0 10px 0 10px;
+  color: rgba(174, 215, 251, 0.269);
+  font-size: 13px;
+  font-weight: 800;
+}
+.logo {
+  
+}
+.logo__text {
+  font-size: 18px;
+  color: #aed7fb;
+  font-weight: 300;
+}
+.logo__text--emphasis {
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+}
+
+.bookmark-list {
+  /* color: #aed7fb; */
+  color: rgba(174, 215, 251, .95);
+}
+.bookmark-list__icon {
+  font-size: 12px;
+  margin-left: 2px;
+  vertical-align: top;
+  line-height: 19px;
+}
+
+.search {
+  position: relative;
+  margin-top: 25px;
+}
+.search__submit {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px 0 0 4px;
+}
+.search__icon {}
+.search__input {
+  width: 580px;
+  padding: 15px 15px 15px 50px;
+  border-radius: 4px;
+  outline: none;
+}
+

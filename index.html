@@ -12,11 +12,27 @@
   <title>Job Listing</title>
 </head>
 <body>
-  <h1><i class="fa-solid fa-house"></i> Job Listing Application</h1>
-  <p>lorem Ipsum</p>
-  <button>Submit</button>
+  <div class="background">
+    <img src="pattern.svg" alt="Background pattern" class="background__pattern">
+  </div>
+  <header class="header">
+    <a href="." class="logo">
+      <p class="logo__text">rmt<span class="logo__text--emphasis">Dev</span></p>
+    </a> 
+    <span class="header__separator">|</span> 
+    <button class="bookmark-list">
+      bookmarks
+      <i class="fa-solid fa-caret-down bookmark-list__icon"></i>
+    </button>
+  </header>
 
-  
+  <form action="" class="search">
+    <button class="search__submit">
+      <i class="fa-solid fa-magnifying-glass search__icon"></i>
+    </button>
+    <input type="text" spellcheck="false" class="search__input">
+  </form>
+
   <script src="index.js" defer></script>
 </body>
 </html>
