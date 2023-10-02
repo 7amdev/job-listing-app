@@ -210,16 +210,16 @@ input {
   font-size: 20px;
   font-weight: 600;
 }
-.badge--green {
+.badge--1 {
   background-color: #9cd053;
 }
-.badge--blue {
+.badge--2 {
   background-color: #5284ec;
 }
-.badge--yellow {
+.badge--3 {
   background-color: #d2d555;
 }
-.badge--red {
+.badge--4 {
   background-color: #c97050;
 }
 .job-post__content {

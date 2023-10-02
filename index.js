@@ -5,6 +5,13 @@ const job_results_count_el = document.querySelector('.filter__job-count');
 const job_post_list_el = document.querySelector('.job-post-list');
 const spinner_job_list_el = document.querySelector('.spinner__job-list');
 const spinner_job_details_el = document.querySelector('.spinner__job-details');
+const get_random_int = function (min, max) {
+  // The maximum is exclusive and the minimum is inclusive
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); 
+}
+
 
 // SEARCH COMPONENT
 search_el.addEventListener('submit', function (event) {
@@ -54,7 +61,7 @@ search_el.addEventListener('submit', function (event) {
     data.forEach(function (job_item) {
       const job_post_markup = 
         `<li class="job-post">
-            <p class="badge">${job_item.badgeLetters}</p>
+            <p class="badge badge--${get_random_int(1, 5)}">${job_item.badgeLetters}</p>
             <div class="job-post__content">
               <h4 class="job-post__title">${job_item.title}</h4>
               <p class="job-post__company">${job_item.company}</p>
