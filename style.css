@@ -195,6 +195,9 @@ input {
   border-bottom: 1px solid rgba(0, 0, 0, .08);
   cursor: pointer;
 }
+.job-post  *::selection {
+  background-color: rgba(0, 0, 0, .1);
+}
 .job-post--active {
   background-color: #f3f5f6;
 }
