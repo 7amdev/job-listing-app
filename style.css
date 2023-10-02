@@ -130,6 +130,7 @@ input {
   box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, .05)
 }
 .panel {
+  position: relative;
   min-width: 345px;
   background-color: #fff;
   display: flex;
@@ -463,4 +464,35 @@ input {
   left: -3px;
   z-index: -1;
   line-height: 47px;
+}
+
+
+/* SPINNER */
+@keyframes spinner {
+  0% {
+      transform: translateX(-50%) rotate(0deg);
+  }
+  
+  100% {
+      transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.spinner {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translateX(-50%) translateZ(0);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border-top: 7px solid #e2e7e9;
+  border-right: 7px solid #e2e7e9;
+  border-bottom: 7px solid #e2e7e9;
+  border-left: 7px solid #ccd1d3;
+  animation: spinner 1s infinite linear;
+}
+.spinner--visible {
+  display: block;
 }
