@@ -57,6 +57,9 @@ search_el.addEventListener('submit', function (event) {
     // clear job list
     job_post_list_el.innerHTML = '';
 
+    // remove focus from search form
+    search_input_el.blur();
+
     // render job items
     data.forEach(function (job_item) {
       const job_post_markup = 
