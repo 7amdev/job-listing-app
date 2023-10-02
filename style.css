@@ -168,7 +168,18 @@ input {
 }
 
 .job-post-list {
-  
+  max-height: 520px;
+  overflow-y: scroll;
+}
+.job-post-list::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width: 7px;
+  background-color: rgba(0, 0, 0, .03)
+}
+.job-post-list::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 .job-post {
   display: flex;
