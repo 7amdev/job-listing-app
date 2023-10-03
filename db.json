@@ -11,7 +11,22 @@
          "relevanceScore":2999,
          "daysAgo":2,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictional9thtechwebsite.com"
+         "companyURL":"https://fictional9thtechwebsite.com",
+         "description":"Join us as we pursue our disruptive new vision to make machine data accessible, usable, and valuable to everyone.",
+         "qualifications":[
+            "JavaScript",
+            "CSS",
+            "React",
+            "HTML",
+            "Node.js",
+            "Optional: TypeScript"
+         ],
+         "reviews":[
+            "I had a great internship.",
+            "Good stepping stone.",
+            "Well-run and organized company.",
+            "Great coworkers & opportunities."
+         ]
       },
       {
          "id":5553645680007895,
@@ -24,7 +39,23 @@
          "relevanceScore":2998,
          "daysAgo":4,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalatsecuritywebsite.com"
+         "companyURL":"https://fictionalatsecuritywebsite.com",
+         "description":"Are you passionate about building software that makes a difference? Do you enjoy collaboration with a team of fun and smart creative people?",
+         "qualifications":[
+            "React",
+            "React Native",
+            "Redux",
+            "Node",
+            "GraphQL",
+            "GitHub",
+            "VS Code"
+         ],
+         "reviews":[
+            "Good support for employees.",
+            "Decent pay and career progression.",
+            "Wonderful place to work.",
+            "Interesting sites to work on."
+         ]
       },
       {
          "id":11312545454587,
@@ -37,7 +68,21 @@
          "relevanceScore":2997,
          "daysAgo":4,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalaspentechwebsite.com"
+         "companyURL":"https://fictionalaspentechwebsite.com",
+         "description":"As a member of the team with a security focus, you will help define the future of our software by designing, creating, testing, and maintaining products that directly support security analysts all across the world.",
+         "qualifications":[
+            "HTML/CSS/JS",
+            "React/React Native",
+            "Node/Rails",
+            "Apollo client & GraphQL",
+            "Bonus: UX/UI"
+         ],
+         "reviews":[
+            "Pay & Benefits are awesome.",
+            "Comfortable to work here for sure.",
+            "Nice people that will support you.",
+            "All good. Recommended."
+         ]
       },
       {
          "id":565556437548678300,
@@ -50,7 +95,21 @@
          "relevanceScore":2996,
          "daysAgo":3,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionallockshelfsystemwebsite.com"
+         "companyURL":"https://fictionallockshelfsystemwebsite.com",
+         "description":"We are seeking talented & passionate web developers to help build new cloud-based services to accompany our flagship product. You will bring curiosity, craft, and a love of helping customers do their best work.",
+         "qualifications":[
+            "HTML/CSS/JS",
+            "React/React Native",
+            "Node/Rails",
+            "Apollo client & GraphQL",
+            "Bonus: UX/UI"
+         ],
+         "reviews":[
+            "Pay & Benefits are awesome.",
+            "Comfortable to work here for sure.",
+            "Nice people that will support you.",
+            "All good. Recommended."
+         ]
       },
       {
          "id":435243523542435,
@@ -63,7 +122,23 @@
          "relevanceScore":1999,
          "daysAgo":1,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionallakeoperationswebsite.com"
+         "companyURL":"https://fictionallakeoperationswebsite.com",
+         "description":"As a full-stack developer, you will be responsible for designing, developing and deploying full-stack solutions in support of LakeOperations' core business.",
+         "qualifications":[
+            "JavaScript",
+            "CSS",
+            "React",
+            "HTML",
+            "Node.js",
+            "Responsive web design",
+            "MongoDB/NoSQL"
+         ],
+         "reviews":[
+            "Best place I've ever worked. I learned a lot.",
+            "I liked that we could work remotely.",
+            "Very nice benefits for online learning.",
+            "Great coworkers, opportunities."
+         ]
       },
       {
          "id":23542345745674570,
@@ -77,7 +152,22 @@
          "daysAgo":1,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
          "companyURL":"https://fictionalcomputerhaverwebsite.com",
-         "badgeBgColor":"#3d87f1"
+         "badgeBgColor":"#3d87f1",
+         "description":"Under the direction of the Eng. Manager, the front-end developer will maintain web pages and web apps for the family of ComputerHaver websites.",
+         "qualifications":[
+            "JavaScript",
+            "CSS",
+            "React",
+            "HTML",
+            "Optional: Angular 2+",
+            "Optional: Vue.js"
+         ],
+         "reviews":[
+            "Remote work here is possible.",
+            "Fantastic place to work. Enjoyed it.",
+            "Great benefits for learning, also online.",
+            "Good opportunities for your career."
+         ]
       },
       {
          "id":68968756834563464,
@@ -90,7 +180,23 @@
          "relevanceScore":1997,
          "daysAgo":1,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalcapsoftwebsite.com"
+         "companyURL":"https://fictionalcapsoftwebsite.com",
+         "description":"We're always looking for top talent in software development so we want to learn about why you feel that's you, what drives you, where you see your career headed, and why you think InsureNow could be the right next move for you.",
+         "qualifications":[
+            "JavaScript",
+            "CSS",
+            "React",
+            "HTML",
+            "NoSQL",
+            "Optional: SQL",
+            "Optional: Python"
+         ],
+         "reviews":[
+            "Nice place to learn the industry.",
+            "Knowledgeable coworkers.",
+            "Fast-paced but doable.",
+            "Good work-from-home policy."
+         ]
       },
       {
          "id":898679876973546,
@@ -103,7 +209,23 @@
          "relevanceScore":1996,
          "daysAgo":2,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalreyandreywebsite.com"
+         "companyURL":"https://fictionalreyandreywebsite.com",
+         "description":"We are looking for an entry-level software developer with enthusiasm, broad exposure to different types of development tasks. This position will support a wide array of services and features.",
+         "qualifications":[
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React/Angular/Vue",
+            "Node.js",
+            "MongoDB/NoSQL",
+            "Optional: SQL"
+         ],
+         "reviews":[
+            "Good place to start your developer career.",
+            "Decent benefits and pay.",
+            "Growing company with good opportunities.",
+            "Good place to work."
+         ]
       },
       {
          "id":32412342141234,
@@ -116,7 +238,22 @@
          "relevanceScore":1995,
          "daysAgo":2,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalnewoperatorwebsite.com"
+         "companyURL":"https://fictionalnewoperatorwebsite.com",
+         "description":"In this role, you will utilize the NewOperator platform to provide support to consulting and technical teams by contributing to various stages of the software development life cycle.",
+         "qualifications":[
+            "HTML",
+            "Ability to learn quickly",
+            "CSS",
+            "JavaScript",
+            "React",
+            "MongoDB/NoSQL"
+         ],
+         "reviews":[
+            "Life-changing opportunity to work here!",
+            "Stable job with growth.",
+            "Nice amenities and training culture.",
+            "Good work environment."
+         ]
       },
       {
          "id":345634575475476,
@@ -129,7 +266,23 @@
          "relevanceScore":1994,
          "daysAgo":4,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalpredICTwebsite.com"
+         "companyURL":"https://fictionalpredICTwebsite.com",
+         "description":"Leverage a deep understanding of software development to develop solutions. Develop backend and frontend solutions to increase security and incorporate new features.",
+         "qualifications":[
+            "JavaScript",
+            "Sass/SCSS",
+            "React",
+            "HTML",
+            "Node.js",
+            "Responsive web design",
+            "Webpack"
+         ],
+         "reviews":[
+            "They really care about employees.",
+            "Great workfloor culture.",
+            "Nice work-life balance.",
+            "Great place to work!"
+         ]
       },
       {
          "id":990796582354534,
@@ -142,7 +295,22 @@
          "relevanceScore":1993,
          "daysAgo":3,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalpear&soswebsite.com"
+         "companyURL":"https://fictionalpear&soswebsite.com",
+         "description":"We are looking for a talented Junior Full Stack Developer to add to our team! This is a great opportunity to sharpen your front and back-end development skills in a fun and innovative environment.",
+         "qualifications":[
+            "React",
+            "Bootstrap",
+            "JavaScript",
+            "CSS",
+            "Node/NPM",
+            "APIs (Rest, GraphQL)"
+         ],
+         "reviews":[
+            "Very nice growth possibilities.",
+            "Good compensation packages.",
+            "They allow work from home.",
+            "Good company & good training."
+         ]
       },
       {
          "id":634634363464563500,
@@ -155,7 +323,23 @@
          "relevanceScore":1992,
          "daysAgo":4,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalveriveriwebsite.com"
+         "companyURL":"https://fictionalveriveriwebsite.com",
+         "description":"The Full Stack Developer will lead the development of major features and implementations, including helping to design the architecture for those features.",
+         "qualifications":[
+            "JavaScript",
+            "React",
+            "TypeScript",
+            "Node.js",
+            "CSS",
+            "Optional: Microservices",
+            "Optional: Docker"
+         ],
+         "reviews":[
+            "Decent pay relative to market rate.",
+            "Great place for new engineer.",
+            "Overall very good.",
+            "I like my team."
+         ]
       },
       {
          "id":96069683624625420,
@@ -350,7 +534,23 @@
          "relevanceScore":1977,
          "daysAgo":2,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalversonetworkswebsite.com"
+         "companyURL":"https://fictionalversonetworkswebsite.com",
+         "description":"Developers are responsible for developing and designing front end web architecture, ensuring the responsiveness of applications, and working alongside graphic designers for web design features, among other duties.",
+         "qualifications":[
+            "Node.js",
+            "Express",
+            "Next.js",
+            "Gatsby",
+            "HTML5",
+            "CSS3",
+            "React"
+         ],
+         "reviews":[
+            "Only job I liked going to.",
+            "Great place to learn.",
+            "Best place to work at.",
+            "Training was good and rest also."
+         ]
       },
       {
          "id":3244453245234544600,
@@ -441,7 +641,21 @@
          "relevanceScore":1970,
          "daysAgo":4,
          "coverImgURL":"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-         "companyURL":"https://fictionalorigamitechwebsite.com"
+         "companyURL":"https://fictionalorigamitechwebsite.com",
+         "description":"Execute and satisfy requirements for globally known brands that depend on these applications to efficiently and accurately exchange their vital business documents.",
+         "qualifications":[
+            "JavaScript",
+            "Typescript",
+            "React",
+            "Responsive web design",
+            "GraphQL"
+         ],
+         "reviews":[
+            "I have nothing to complain.",
+            "Company has great vision.",
+            "Benefits and remote are great.",
+            "They leave you alone after work."
+         ]
       },
       {
          "id":9889989867856755000,
