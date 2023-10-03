@@ -194,6 +194,11 @@ input {
   padding: 13px 20px;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
   cursor: pointer;
+  outline: none;
+}
+.job-post:hover,
+.job-post:focus {
+  background-color: #fbfcfc;
 }
 .job-post  *::selection {
   background-color: rgba(0, 0, 0, .1);
