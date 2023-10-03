@@ -48,7 +48,7 @@
         <button class="filter__button">Recent</button>
       </section>
 
-      <div class="spinner spinner__job-list"></div>
+      <div class="spinner spinner--job-list"></div>
 
       <ul class="job-post-list">
         <li class="job-post-list__item">
@@ -179,85 +179,88 @@
       </section>
     </section>
     <main class="job-details">
-      <img src="job_detail_bck.jpg" class="job-details__img" alt="office smile coworking">
-      <div class="spinner spinner__job-details"></div>
-
-      <button class="apply">
-        Apply
-        <i class="fa-solid fa-square-caret-right apply__icon"></i>
-      </button>
-
+      <div class="spinner spinner--job-details"></div>
+      
       <section class="job-details__content">
-        <div class="job-details__col-left">
-          <p class="badge badge--yellow badge--xl">LO</p>
-          <div class="job-details__wrapper">
-            <p class="job-details__date job-details__date--md">Wed</p>
-            <button class="bookmark bookmark--xl">
-              <i class="fa-solid fa-bookmark bookmark__icon"></i>
-            </button> 
+        <img src="job_detail_bck.jpg" class="job-details__img" alt="office smile coworking">
+  
+        <button class="apply">
+          Apply
+          <i class="fa-solid fa-square-caret-right apply__icon"></i>
+        </button>
+        
+        <section class="job-details__info">
+          <div class="job-details__col-left">
+            <p class="badge badge--yellow badge--xl">LO</p>
+            <div class="job-details__wrapper">
+              <p class="job-details__date job-details__date--md">Wed</p>
+              <button class="bookmark bookmark--xl">
+                <i class="fa-solid fa-bookmark bookmark__icon"></i>
+              </button> 
+            </div>
           </div>
-        </div>
-        <div class="job-details__col-right">
-          <h1 class="job-details__title">Full-Stack Developer</h1>
-          <p class="job-details__company">LakeOperations</p>
-          <p class="job-details__description">
-            As a full-stack developer, you will be responsible for designing,
-            developing and deploying full-stack solutions in support of 
-            LakeOperations' core business.
-          </p>
-          <ul class="job-details__info">
-            <li class="job-details__type">
-              <i class="fa-solid fa-clock job-details__icon"></i>
-              Full-Time
-            </li>
-            <li class="job-details__salary">
-              <i class="fa-solid fa-money-bill job-details__icon"></i>
-              $85,000+
-            </li>
-            <li class="job-details__location">
-              <i class="fa-solid fa-location-dot job-details__icon"></i>
-              Global
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="job-details__others">
-        <div class="qualification">
-          <div class="qualification__col-left">
-            <p class="qualification__second-heading">Qualifications</p>
-            <p class="qualification__paragraph">
-              Other qualifications may apply
+          <div class="job-details__col-right">
+            <h1 class="job-details__title">Full-Stack Developer</h1>
+            <p class="job-details__company">LakeOperations</p>
+            <p class="job-details__description">
+              As a full-stack developer, you will be responsible for designing,
+              developing and deploying full-stack solutions in support of 
+              LakeOperations' core business.
             </p>
+            <ul class="job-details__other-info">
+              <li class="job-details__type">
+                <i class="fa-solid fa-clock job-details__icon"></i>
+                Full-Time
+              </li>
+              <li class="job-details__salary">
+                <i class="fa-solid fa-money-bill job-details__icon"></i>
+                $85,000+
+              </li>
+              <li class="job-details__location">
+                <i class="fa-solid fa-location-dot job-details__icon"></i>
+                Global
+              </li>
+            </ul>
           </div>
-          <div class="qualification__col-right qualification__skills">
-            <p class="skill-tag">Javascript</p>
-            <p class="skill-tag">CSS</p>
-            <p class="skill-tag">React</p>
-            <p class="skill-tag">HTML</p>
-            <p class="skill-tag">Node.js</p>
-            <p class="skill-tag">Responsive web design</p>
-            <p class="skill-tag">MongoDB/NoSQL</p>
+        </section>
+  
+        <section class="job-details__others">
+          <div class="qualification">
+            <div class="qualification__col-left">
+              <p class="qualification__second-heading">Qualifications</p>
+              <p class="qualification__paragraph">
+                Other qualifications may apply
+              </p>
+            </div>
+            <div class="qualification__col-right qualification__skills">
+              <p class="skill-tag">Javascript</p>
+              <p class="skill-tag">CSS</p>
+              <p class="skill-tag">React</p>
+              <p class="skill-tag">HTML</p>
+              <p class="skill-tag">Node.js</p>
+              <p class="skill-tag">Responsive web design</p>
+              <p class="skill-tag">MongoDB/NoSQL</p>
+            </div>
           </div>
-        </div>
-
-        <div class="reviews">
-          <div class="reviews__col-left">
-            <p class="reviews__second-heading">Company Reviews</p>
-            <p class="reviews__paragraph">
-              Recent things people are saying
-            </p>
+  
+          <div class="reviews">
+            <div class="reviews__col-left">
+              <p class="reviews__second-heading">Company Reviews</p>
+              <p class="reviews__paragraph">
+                Recent things people are saying
+              </p>
+            </div>
+            <div class="reviews__col-right">
+              <p class="review-quote">Best place i've ever worked. I learned a lot.</p>
+              <p class="review-quote">I liked that we could work remotely.</p>
+              <p class="review-quote">Very nice benefits for online learning.</p>
+              <p class="review-quote">Great coworkers, opportunities.</p>
+             
+            </div>
           </div>
-          <div class="reviews__col-right">
-            <p class="review-quote">Best place i've ever worked. I learned a lot.</p>
-            <p class="review-quote">I liked that we could work remotely.</p>
-            <p class="review-quote">Very nice benefits for online learning.</p>
-            <p class="review-quote">Great coworkers, opportunities.</p>
-           
-          </div>
-        </div>
-      </section>
-      <footer class="job-details__footer">if possible, please reference that you found the job on this site, we would appreciate it!</footer>
+        </section>
+        <footer class="job-details__footer">if possible, please reference that you found the job on this site, we would appreciate it!</footer>
+      </section>   
     </main>
   </section>
 
