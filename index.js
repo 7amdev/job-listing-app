@@ -93,3 +93,8 @@ search_el.addEventListener('submit', function (event) {
   });
 });
 
+// JOB-LIST COMPONENT
+job_post_list_el.addEventListener('click', function (event) {
+  const job_post_clicked = event.target.closest('.job-post');
+  console.log(job_post_clicked);
+});
