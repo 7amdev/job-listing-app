@@ -59,32 +59,34 @@ search_el.addEventListener('submit', function (event) {
     // render job items
     data.forEach(function (job_item, index) {
       const job_post_markup = 
-        `<li class="job-post">
-            <p class="badge badge--${(index) % 4 + 1}">${job_item.badgeLetters}</p>
-            <div class="job-post__content">
-              <h4 class="job-post__title">${job_item.title}</h4>
-              <p class="job-post__company">${job_item.company}</p>
-              <ul class="job-post__info">
-                <li class="job-post__type">
-                  <i class="fa-solid fa-clock job-post__icon"></i>
-                  ${job_item.duration}
-                </li>
-                <li class="job-post__salary">
-                  <i class="fa-solid fa-money-bill job-post__icon"></i>
-                  $${job_item.salary}
-                </li>
-                <li class="job-post__location">
-                  <i class="fa-solid fa-location-dot job-post__icon"></i>
-                  ${job_item.location}
-                </li>
-              </ul>
-            </div>
-            <div class="job-post__meta">
-              <button class="bookmark">
-                <i class="fa-solid fa-bookmark bookmark__icon"></i>
-              </button>
-              <p class="job-post__date">${job_item.daysAgo}d</p>
-            </div>
+        `<li class="job-post-list__item">
+            <a href="#${job_item.id}" class="job-post">
+              <p class="badge badge--${(index) % 4 + 1}">${job_item.badgeLetters}</p>
+              <div class="job-post__content">
+                <h4 class="job-post__title">${job_item.title}</h4>
+                <p class="job-post__company">${job_item.company}</p>
+                <ul class="job-post__info">
+                  <li class="job-post__type">
+                    <i class="fa-solid fa-clock job-post__icon"></i>
+                    ${job_item.duration}
+                  </li>
+                  <li class="job-post__salary">
+                    <i class="fa-solid fa-money-bill job-post__icon"></i>
+                    $${job_item.salary}
+                  </li>
+                  <li class="job-post__location">
+                    <i class="fa-solid fa-location-dot job-post__icon"></i>
+                    ${job_item.location}
+                  </li>
+                </ul>
+              </div>
+              <div class="job-post__meta">
+                <button class="bookmark">
+                  <i class="fa-solid fa-bookmark bookmark__icon"></i>
+                </button>
+                <p class="job-post__date">${job_item.daysAgo}d</p>
+              </div>
+            </a>
           </li>`;
   
       job_post_list_el.insertAdjacentHTML('beforeend', job_post_markup);
@@ -120,7 +122,7 @@ job_post_list_el.addEventListener('click', function (event) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       spinner_job_details_el.classList.remove('spinner--visible');
 
       const job_details_content_markup = 
