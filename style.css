@@ -313,8 +313,26 @@ input {
 }
 .job-details__content {
   position: relative;
-  /* z-index: 0; */
+  height: 100%;
 }
+.job-details__start-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.job-details__start-text {
+  font-size: 16px;
+  color: #909093;
+  user-select: none;
+}
+.job-details__start-text--big {
+  font-size: 20px;
+  font-weight: 600;
+  color: #595c61;
+}
+
 .job-details__img {
   position: absolute;
   /* z-index: -1; */
