@@ -3,22 +3,11 @@ const search_el = document.querySelector('.search');
 const search_input_el = document.querySelector('.search__input');
 const job_results_count_el = document.querySelector('.filter__job-count');
 const job_post_list_el = document.querySelector('.job-post-list');
-<<<<<<< HEAD
-const spinner_job_list_el = document.querySelector('.spinner__job-list');
-const spinner_job_details_el = document.querySelector('.spinner__job-details');
-=======
 const spinner_job_list_el = document.querySelector('.spinner--job-list');
 const spinner_job_details_el = document.querySelector('.spinner--job-details');
 const job_details_el = document.querySelector('.job-details');
 const job_details_content_el = document.querySelector('.job-details__content');
-const get_random_int = function (min, max) {
-  // The maximum is exclusive and the minimum is inclusive
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); 
-}
 
->>>>>>> 9c416d1 (feat: render job details)
 
 // SEARCH COMPONENT
 search_el.addEventListener('submit', function (event) {
