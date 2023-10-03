@@ -96,5 +96,12 @@ search_el.addEventListener('submit', function (event) {
 // JOB-LIST COMPONENT
 job_post_list_el.addEventListener('click', function (event) {
   const job_post_clicked = event.target.closest('.job-post');
-  console.log(job_post_clicked);
+  const job_posts = job_post_list_el.querySelectorAll('.job-post');
+  
+  job_posts.forEach(function (job_post) {
+    job_post.classList.remove('job-post--active');
+  });
+
+  job_post_clicked?.blur();
+  job_post_clicked?.classList.add('job-post--active');
 });
