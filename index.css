@@ -42,11 +42,10 @@ input {
 
 
 .error {
-  display: none;
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 250px;
+  width: 260px;
   display: flex;
   column-gap: 10px;
   background-color: #fff;
@@ -54,9 +53,10 @@ input {
   padding: 5px 10px 5px 10px;
   border-bottom: 2px solid rgba(0, 0, 0, .13);
   max-height: 77px;
+  visibility: hidden;
 }
 .error--visible {
-  display: block;
+  visibility: visible;
 }
 .error *::selection {
   background-color: rgba(0, 0, 0, .1);
