@@ -1,2 +1,2 @@
-import './src/component/Search.js';
-import './src/component/JobList.js';
+import './src/components/Search.js';
+import './src/components/JobList.js';
