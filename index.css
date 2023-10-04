@@ -42,6 +42,7 @@ input {
 
 
 .error {
+  display: none;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -51,8 +52,11 @@ input {
   background-color: #fff;
   border-radius: 4px;
   padding: 5px 10px 5px 10px;
-  /* border-bottom: 2px solid rgba(0, 0, 0, .13); */
+  border-bottom: 2px solid rgba(0, 0, 0, .13);
   max-height: 77px;
+}
+.error--visible {
+  display: block;
 }
 .error *::selection {
   background-color: rgba(0, 0, 0, .1);
