@@ -6,3 +6,6 @@ export const spinner_job_list_el = document.querySelector('.spinner--job-list');
 export const spinner_job_details_el = document.querySelector('.spinner--job-details');
 export const job_details_el = document.querySelector('.job-details');
 export const job_details_content_el = document.querySelector('.job-details__content');
+export const error_el = document.querySelector('.error');
+export const error_title = error_el.querySelector('.error__title');
+export const error_description = error_el.querySelector('.error__description');

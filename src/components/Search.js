@@ -5,6 +5,7 @@ import {
   job_post_list_el
 } from "../Common.js";
 import render_spinner from "./Spinner.js";
+import render_error from './Error.js'
 
 search_el.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -15,20 +16,17 @@ search_el.addEventListener('submit', function (event) {
   const contains_forbidden_chars = invalid_chars.test(search_input_value);
 
   if (contains_forbidden_chars) {
-    console.log('Invalid search text...');
-    // Show Message error dialog
+    render_error('Invalid search text. Search text doesnt support these caracters: #,%,<script>');
     return;
   } 
 
   if (search_input_value.length === 0) {
-    console.log('Invalid search text...');
-    // Show Message error dialog
+    render_error('Please provide a text...');
     return;
   }
 
   // show loading spinner...
   render_spinner('job-list');
-  // spinner_job_list_el.classList.add('spinner--visible');
 
   // fetch call
   fetch(`http://localhost:3000/jobs?q=${search_input_value}`)
@@ -42,7 +40,6 @@ search_el.addEventListener('submit', function (event) {
   .then(function (data) {
 
     // hide spinner
-    // spinner_job_list_el.classList.remove('spinner--visible');
     render_spinner('job-list');
 
     // render # of results 
@@ -91,7 +88,7 @@ search_el.addEventListener('submit', function (event) {
     });
   })
   .catch(function (error) {
-    console.warn(error.message);
-    // show dialog messsage
+    render_error(error.message);
+    render_spinner('job-list');
   });
 });
