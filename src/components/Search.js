@@ -1,4 +1,5 @@
-import { 
+import {
+  API_BASE_URL,
   search_el,
   search_input_el,
   job_results_count_el,
@@ -29,7 +30,7 @@ search_el.addEventListener('submit', function (event) {
   render_spinner('job-list');
 
   // fetch call
-  fetch(`http://localhost:3000/jobs?q=${search_input_value}`)
+  fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`)
   .then(function (response) {
     if (!response.ok) {
       throw new Error('Response error (e.g Netwok or server problem occured...)');

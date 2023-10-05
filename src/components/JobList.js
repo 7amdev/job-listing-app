@@ -1,4 +1,8 @@
-import { job_post_list_el, job_details_content_el } from "../Common.js";
+import { 
+  API_BASE_URL, 
+  job_post_list_el, 
+  job_details_content_el 
+} from "../Common.js";
 import render_spinner from "./Spinner.js";
 import render_job_details from "./JobDetails.js";
 
@@ -18,7 +22,7 @@ job_post_list_el.addEventListener('click', function (event) {
   render_spinner('job-details');
   // spinner_job_details_el.classList.add('spinner--visible');
 
-  fetch(`http://localhost:3000/jobs/${job_post_id}`)
+  fetch(`${API_BASE_URL}/jobs/${job_post_id}`)
     .then(function (response) {
       if (!response.ok) {
         throw new Error('Response error (e.g Netwok or server problem occured...)');
