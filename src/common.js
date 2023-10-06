@@ -20,6 +20,9 @@ export const job_details_content_el = document.querySelector('.job-details__cont
 export const error_el = document.querySelector('.error');
 export const error_title = error_el.querySelector('.error__title');
 export const error_description = error_el.querySelector('.error__description');
+export const filter_el = document.querySelector('.filter');
+export const filter_relevant_btn_el = filter_el.querySelector('.filter--relevant');
+export const filter_recent_btn_el = filter_el.querySelector('.filter--recent');
 
 // UTILITY/HELPER FUNCTION
 

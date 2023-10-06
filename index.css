@@ -213,6 +213,11 @@ input {
   padding: 6px 10px;
   background-color: #eaebf1;
   border-radius: 4px;
+  transition: all .3s;
+  user-select: none;
+}
+.filter__button:not(.filter__button--active):hover {
+  background-color: #dddee3;
 }
 .filter__button--active {
   background-color: #3f4143;

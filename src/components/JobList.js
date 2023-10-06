@@ -9,6 +9,9 @@ import render_error from "./Error.js";
 import render_job_details from "./JobDetails.js";
 
 const render_job_list = function () {
+
+  job_post_list_el.innerHTML = '';
+  
   state.job_list.forEach(function (job_item, index) {
     const job_post_markup = 
       `<li class="job-post-list__item">

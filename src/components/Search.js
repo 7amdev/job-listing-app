@@ -9,6 +9,7 @@ import {
 import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
 import render_job_list from "./JobList.js";
+import { sort_by_relevance  } from "./Sort.js";
 
 const search_form_submit_handler = async function (event) {
   event.preventDefault();  
@@ -43,6 +44,9 @@ const search_form_submit_handler = async function (event) {
 
     // update STATE
     state.job_list = data;
+
+    // Sort by Relevance
+    sort_by_relevance();
 
     // hide spinner
     render_spinner('job-list');
