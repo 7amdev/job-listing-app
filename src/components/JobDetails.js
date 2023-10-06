@@ -1,7 +1,9 @@
-import { job_details_content_el } from '../common.js';
+import { state, job_details_content_el } from '../common.js';
 
 
-const render_job_details = function (data) {
+const render_job_details = function () {
+  const { job_details: data } = state;
+
   const job_details_content_markup = 
     `<img src="${data.coverImgURL}" class="job-details__img" alt="office smile coworking">
 

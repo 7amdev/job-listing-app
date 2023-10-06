@@ -1,3 +1,9 @@
+// STATE
+export const state = {
+  job_list: [],
+  job_details: {}
+};
+
 // CONSTANTS
 export const API_BASE_URL = 'http://localhost:3000';
 export const MSG_DISPLAY_TIME = 3000;
@@ -16,3 +22,4 @@ export const error_title = error_el.querySelector('.error__title');
 export const error_description = error_el.querySelector('.error__description');
 
 // UTILITY/HELPER FUNCTION
+
