@@ -1,4 +1,4 @@
-import { job_details_content_el } from '../Common.js';
+import { job_details_content_el } from '../common.js';
 
 
 const render_job_details = function (data) {

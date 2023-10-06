@@ -4,7 +4,7 @@ import {
   search_input_el,
   job_results_count_el,
   job_post_list_el
-} from "../Common.js";
+} from "../common.js";
 import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
 
@@ -33,7 +33,7 @@ search_el.addEventListener('submit', function (event) {
   fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`)
   .then(function (response) {
     if (!response.ok) {
-      throw new Error('Response error (e.g Netwok or server problem occured...)');
+      throw new Error('Resource issue (e.g resource doesn\' exist or server issue...)');
     }
 
     return response.json();

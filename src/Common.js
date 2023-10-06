@@ -1,5 +1,7 @@
+// CONSTANTS
 export const API_BASE_URL = 'http://localhost:3000';
 
+// SELECTORS
 export const search_el = document.querySelector('.search');
 export const search_input_el = document.querySelector('.search__input');
 export const job_results_count_el = document.querySelector('.filter__job-count');

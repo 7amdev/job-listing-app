@@ -2,7 +2,7 @@ import {
   API_BASE_URL, 
   job_post_list_el, 
   job_details_content_el 
-} from "../Common.js";
+} from "../common.js";
 import render_spinner from "./Spinner.js";
 import render_job_details from "./JobDetails.js";
 
@@ -25,7 +25,7 @@ job_post_list_el.addEventListener('click', function (event) {
   fetch(`${API_BASE_URL}/jobs/${job_post_id}`)
     .then(function (response) {
       if (!response.ok) {
-        throw new Error('Response error (e.g Netwok or server problem occured...)');
+        throw new Error('Resource issue (e.g resource doesn\' exist or server issue...)');
       }
       return response.json();
     })

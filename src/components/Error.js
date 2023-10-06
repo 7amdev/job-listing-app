@@ -1,4 +1,4 @@
-import { error_el, error_title, error_description } from '../Common.js';
+import { error_el, error_description } from '../common.js';
 
 const render_error = function (message) {
   // error_title.textContent = title;

@@ -1,4 +1,4 @@
-import { spinner_job_details_el, spinner_job_list_el } from '../Common.js'
+import { spinner_job_details_el, spinner_job_list_el } from '../common.js'
 
 const render_spinner = function (which_spinner) {
   if (which_spinner === 'job-list') 
