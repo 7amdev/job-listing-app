@@ -8,7 +8,7 @@ import {
 import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
 
-search_el.addEventListener('submit', function (event) {
+const search_form_submit_handler = async function (event) {
   event.preventDefault();
   const search_input_value = search_input_el.value;
 
@@ -29,16 +29,15 @@ search_el.addEventListener('submit', function (event) {
   // show loading spinner...
   render_spinner('job-list');
 
-  // fetch call
-  fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`)
-  .then(function (response) {
+  try {
+
+    // fetch call
+    const response = await fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`);
+    const data = await response.json();
+
     if (!response.ok) {
       throw new Error('Resource issue (e.g resource doesn\' exist or server issue...)');
     }
-
-    return response.json();
-  })
-  .then(function (data) {
 
     // hide spinner
     render_spinner('job-list');
@@ -84,12 +83,14 @@ search_el.addEventListener('submit', function (event) {
               </div>
             </a>
           </li>`;
-  
+
       job_post_list_el.insertAdjacentHTML('beforeend', job_post_markup);
     });
-  })
-  .catch(function (error) {
+
+  } catch(error) {
     render_error(error.message);
     render_spinner('job-list');
-  });
-});
+  }
+};
+
+search_el.addEventListener('submit', search_form_submit_handler);

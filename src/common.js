@@ -1,5 +1,6 @@
 // CONSTANTS
 export const API_BASE_URL = 'http://localhost:3000';
+export const MSG_DISPLAY_TIME = 3000;
 
 // SELECTORS
 export const search_el = document.querySelector('.search');
@@ -13,3 +14,5 @@ export const job_details_content_el = document.querySelector('.job-details__cont
 export const error_el = document.querySelector('.error');
 export const error_title = error_el.querySelector('.error__title');
 export const error_description = error_el.querySelector('.error__description');
+
+// UTILITY/HELPER FUNCTION
