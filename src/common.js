@@ -23,6 +23,9 @@ export const error_description = error_el.querySelector('.error__description');
 export const filter_el = document.querySelector('.filter');
 export const filter_relevant_btn_el = filter_el.querySelector('.filter--relevant');
 export const filter_recent_btn_el = filter_el.querySelector('.filter--recent');
+export const pagination_el = document.querySelector('.pagination');
+export const pagination_prev_btn_el = pagination_el.querySelector('.pagination__button--prev');
+export const pagination_next_btn_el = pagination_el.querySelector('.pagination__button--next');
 
 // UTILITY/HELPER FUNCTION
 
