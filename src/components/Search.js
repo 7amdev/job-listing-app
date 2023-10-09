@@ -1,6 +1,6 @@
 import {
-  state,
   API_BASE_URL,
+  state,
   search_el,
   search_input_el,
   job_results_count_el,
