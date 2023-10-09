@@ -351,6 +351,16 @@ input {
   background-color: #f3f4f6;
   border-radius: 100px;
   padding: 5px 8px;
+  transition: all .2s;
+  visibility: hidden;
+}
+.pagination__button:hover,
+.pagination__button:focus {
+  background-color: #e5e7eb;
+  transform: scale(1.07);
+}
+.pagination__button--visible {
+  visibility: visible;
 }
 .pagination__icon {
   font-size: 9px;
