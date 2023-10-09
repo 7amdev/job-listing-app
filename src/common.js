@@ -1,12 +1,14 @@
 // STATE
 export const state = {
   job_list: [],
-  job_details: {}
+  job_details: {},
+  pagination_index: 1
 };
 
 // CONSTANTS
 export const API_BASE_URL = 'http://localhost:3000';
 export const MSG_DISPLAY_TIME = 3000;
+export const ITEMS_PER_PAGE = 7;
 
 // SELECTORS
 export const search_el = document.querySelector('.search');

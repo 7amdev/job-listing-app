@@ -9,6 +9,7 @@ import {
 import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
 import render_job_list from "./JobList.js";
+import render_pagination from "./Pagination.js";
 import { sort_by_relevance  } from "./Sort.js";
 
 const search_form_submit_handler = async function (event) {
@@ -62,6 +63,9 @@ const search_form_submit_handler = async function (event) {
 
     // render job items
     render_job_list();
+
+    // render pagination
+    render_pagination();
 
   } catch(error) {
     console.warn(error);
