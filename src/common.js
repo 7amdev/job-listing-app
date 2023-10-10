@@ -2,7 +2,8 @@
 export const state = {
   job_list: [],
   job_details: {},
-  pagination_index: 1
+  current_page_idx: 0,
+  sort: '-relevant'
 };
 
 // CONSTANTS
@@ -28,6 +29,16 @@ export const filter_recent_btn_el = filter_el.querySelector('.filter--recent');
 export const pagination_el = document.querySelector('.pagination');
 export const pagination_prev_btn_el = pagination_el.querySelector('.pagination__button--prev');
 export const pagination_next_btn_el = pagination_el.querySelector('.pagination__button--next');
+export const pagination_next_btn_description = pagination_el.querySelector('.pagination__description--next');
+export const pagination_prev_btn_description = pagination_el.querySelector('.pagination__description--prev');
+
 
 // UTILITY/HELPER FUNCTION
+export const calculate_number_of_pages = function (list_length) {
+  let pages = Math.floor(list_length / ITEMS_PER_PAGE);
+  
+  // if ((list_length % ITEMS_PER_PAGE) > 0)
+  //   pages += 1;
 
+  return pages;
+};
