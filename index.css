@@ -351,7 +351,6 @@ input {
   background-color: #f3f4f6;
   border-radius: 100px;
   padding: 5px 8px;
-  transition: all .2s;
   visibility: hidden;
 }
 .pagination__button:hover,
