@@ -1,8 +1,9 @@
 import {
   state,
-  API_BASE_URL, 
   job_post_list_el, 
-  job_details_content_el 
+  job_details_content_el,
+  API_BASE_URL, 
+  ITEMS_PER_PAGE
 } from "../common.js";
 import render_spinner from "./Spinner.js";
 import render_error from "./Error.js";
@@ -10,9 +11,39 @@ import render_job_details from "./JobDetails.js";
 
 const render_job_list = function () {
 
-  job_post_list_el.innerHTML = '';
+  let results = [...state.job_list];
   
-  state.job_list.forEach(function (job_item, index) {
+  job_post_list_el.innerHTML = '';
+
+  // FILTER
+
+  // SORT 
+  if (state.sort === '-relevant') {
+    results = results.sort(function (a, b) {
+      // Descending Order
+      if (a.relevanceScore > b.relevanceScore) return -1;
+      else if (a.relevanceScore < b.relevanceScore) return 1;
+  
+      return 0;
+    });    
+  }   
+
+  if (state.sort === '+recent') {
+    results = results.sort(function (a, b) {
+      if (a.daysAgo > b.daysAgo) return 1;
+      else if (a.daysAgo < b.daysAgo) return -1;
+
+      return 0;
+    });
+  } 
+
+  // PAGINATION
+  const range_start = state.current_page_idx * ITEMS_PER_PAGE;
+  const range_end   = range_start + ITEMS_PER_PAGE;
+
+  results = results.slice(range_start, range_end);
+
+  results.forEach(function (job_item, index) {
     const job_post_markup = 
       `<li class="job-post-list__item">
           <a href="#${job_item.id}" class="job-post">
@@ -74,10 +105,9 @@ const job_post_list_click_handler =  async function (event) {
     // UPDATE STATE
     state.job_details = data;
 
-    // Rendering
+    // RENDERING
     render_spinner('job-details');
     render_job_details();
-
   } catch(error) {
     console.warn(error);
     render_spinner('job-details');
