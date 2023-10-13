@@ -10,6 +10,7 @@ import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
 import render_job_list from "./JobList.js";
 import render_pagination from "./Pagination.js";
+import { navigate_to } from "./Router.js";
 
 const search_form_submit_handler = async function (event) {
   event.preventDefault();  
@@ -28,6 +29,10 @@ const search_form_submit_handler = async function (event) {
     render_error('Please provide a text...');
     return;
   }
+
+
+  navigate_to(`/jobs?q=${search_input_value}`);
+  return; 
 
   // show loading spinner...
   render_spinner('job-list');

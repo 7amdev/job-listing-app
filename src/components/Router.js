@@ -1,5 +1,21 @@
 import render_job_details from "./JobDetails.js";
 import render_job_list from "./JobList.js";
+import render_spinner from "./Spinner.js";
+import render_pagination from "./Pagination.js";
+import { 
+  state, 
+  job_results_count_el, 
+  job_post_list_el,
+  job_details_content_el,
+  search_input_el,
+  API_BASE_URL,
+  APP_BASE_URL
+} from "../common.js";
+
+
+const navigate_to = function (path) {
+  window.location.href = `${APP_BASE_URL}/#${path}`;
+};
 
 const routes = [
   { 
@@ -13,20 +29,90 @@ const routes = [
   },
   {
     path: "/jobs",
-    render: function () {
+    render: async function (params, query) {
       // UPDATE STATE 
-      // RENDER
-      render_job_list();
+      const query_obj = new URLSearchParams(query);
+
+      const search_input_value = query_obj.get('q');
+
+      // @todo: set search:input value to searchParams.q
+
+      // show loading spinner...
+      render_spinner('job-list');
+
+      try {
+
+        // fetch call
+        const response = await fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`);
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error('Resource issue (e.g resource doesn\' exist or server issue...)');
+        }
+
+        // -- UPDATE STATE
+        state.job_list = data;
+        state.current_page_idx = 0;
+        state.sort = '-relevant';
+
+        // -- UPDATE UI
+
+        // hide spinner
+        render_spinner('job-list');
+
+        // render # of results 
+        job_results_count_el.textContent = state.job_list.length;
+
+        // clear job list
+        job_post_list_el.innerHTML = '';
+
+        // remove focus from search form
+        search_input_el.blur();
+
+        // render job items
+        render_job_list();
+
+        // render pagination
+        render_pagination();
+
+      } catch(error) {
+        console.warn(error);
+        render_error(error.message);
+        render_spinner('job-list');
+      }
     },
     title: "Jobs listing",
     description: "Some meta description data"
   },
   { 
     path: "/jobs/:id", 
-    render: function () {
-      // UPDATE STATE
-      // RENDER
-      render_job_details();
+    render: async function (params, query) {
+      console.log('/jobs/:id', params, query);
+      const { id } = params;
+
+      job_details_content_el.innerHTML = '';
+
+      render_spinner('job-details');
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/jobs/${id}`);
+        const data = await response.json();
+      
+        if (!response.ok) {
+          throw new Error('Resource issue (e.g resource doesn\'t exist or server issue...)');
+        }
+      
+        // UPDATE STATE
+        state.job_details = data;
+
+        // UPDATE UI
+        render_spinner('job-details');
+        render_job_details();
+      } catch(error) {
+        console.warn(error);
+        render_spinner('job-details');
+        render_error(error.message);
+      };
     },
     title: "Job details",
     description: "Some meta description data"
@@ -79,37 +165,39 @@ const router = function (event) {
     return match.is_match;
   });
 
-  if (!match) return;
-
-  console.log(match);
+  if (!match) return; // @todo: route 404
 
   // Set Tab Title and document meta description
   document.title = match.title;
   document.querySelector('meta[name="description"]').setAttribute('content', match.description);
 
-  // QUERY & PARAMS 
   const params_rx = /\/:(\w+)/g;
-  const params_names = match.path.match(params_rx).map(function (param) {
-    return param.substring(2);
-  });
- 
-  const params_values = match.path_rx.exec(current_location);
-  const route_params = {};
-  for (let i = 0; i < params_names.length; i++) {
-    route_params[params_names[i]] = params_values[i+1];
-  } 
-  const route_query = params_values[params_values.length-1];
-
-  console.log(route_params);
-  console.log(route_query);
+  const has_params = match.path.match(params_rx);
+  let params_names = [];
+  if (has_params) {
+    params_names = match.path.match(params_rx).map(function (param) {
+      return param.substring(2);
+    });
+  }
   
-  // MATCH render();
+  const params_values = match.path_rx.exec(current_location);
+  const query = params_values[params_values.length-1];
+  const params = {};
+  for (let i = 0; i < params_names.length; i++) {
+    params[params_names[i]] = params_values[i+1];
+  } 
+    
+  match.render(params, new URLSearchParams(query));
 };
 
 // REGISTERING EVENTS
 window.addEventListener('DOMContentLoaded', router);
 window.addEventListener('hashchange', router);
 
+
+export {
+  navigate_to
+}
 
 
 

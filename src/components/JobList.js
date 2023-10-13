@@ -46,7 +46,7 @@ const render_job_list = function () {
   results.forEach(function (job_item, index) {
     const job_post_markup = 
       `<li class="job-post-list__item">
-          <a href="#${job_item.id}" class="job-post">
+          <a href="#/jobs/${job_item.id}" class="job-post">
             <p class="badge badge--${(index) % 4 + 1}">${job_item.badgeLetters}</p>
             <div class="job-post__content">
               <h4 class="job-post__title">${job_item.title}</h4>
@@ -91,7 +91,11 @@ const job_post_list_click_handler =  async function (event) {
   job_post_clicked?.blur();
   job_post_clicked?.classList.add('job-post--active');
 
+  
+  return;
+  
   job_details_content_el.innerHTML = '';
+  
   render_spinner('job-details');
 
   try {
@@ -99,7 +103,7 @@ const job_post_list_click_handler =  async function (event) {
     const data = await response.json();
   
     if (!response.ok) {
-      throw new Error('Resource issue (e.g resource doesn\' exist or server issue...)');
+      throw new Error('Resource issue (e.g resource doesn\'t exist or server issue...)');
     }
   
     // UPDATE STATE
