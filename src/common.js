@@ -38,8 +38,8 @@ export const pagination_prev_btn_description = pagination_el.querySelector('.pag
 export const calculate_number_of_pages = function (list_length) {
   let pages = Math.floor(list_length / ITEMS_PER_PAGE);
   
-  // if ((list_length % ITEMS_PER_PAGE) > 0)
-  //   pages += 1;
+  if ((list_length % ITEMS_PER_PAGE) === 0)
+    pages -= 1;
 
   return pages;
 };
