@@ -29,7 +29,6 @@ const sort_by_recent = function () {
 
   // UPDATE STATE
   state.sort = '+recent';
-
 };
 
 filter_el.addEventListener('click', function (event) {

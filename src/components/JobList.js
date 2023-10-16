@@ -1,8 +1,6 @@
 import {
   state,
-  job_post_list_el, 
-  job_details_content_el,
-  API_BASE_URL, 
+  job_post_list_el,
   ITEMS_PER_PAGE
 } from "../common.js";
 import render_spinner from "./Spinner.js";
@@ -90,33 +88,6 @@ const job_post_list_click_handler =  async function (event) {
 
   job_post_clicked?.blur();
   job_post_clicked?.classList.add('job-post--active');
-
-  
-  return;
-  
-  job_details_content_el.innerHTML = '';
-  
-  render_spinner('job-details');
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/jobs/${job_post_id}`);
-    const data = await response.json();
-  
-    if (!response.ok) {
-      throw new Error('Resource issue (e.g resource doesn\'t exist or server issue...)');
-    }
-  
-    // UPDATE STATE
-    state.job_details = data;
-
-    // RENDERING
-    render_spinner('job-details');
-    render_job_details();
-  } catch(error) {
-    console.warn(error);
-    render_spinner('job-details');
-    render_error(error.message);
-  };
 };
 
 job_post_list_el.addEventListener('click', job_post_list_click_handler);
