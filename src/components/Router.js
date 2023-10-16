@@ -30,12 +30,10 @@ const routes = [
   {
     path: "/jobs",
     render: async function (params, query) {
-      // UPDATE STATE 
-      const query_obj = new URLSearchParams(query);
+      const search_input_value = query.get('q');
 
-      const search_input_value = query_obj.get('q');
-
-      // @todo: set search:input value to searchParams.q
+      // Set input search element value
+      search_input_el.value = search_input_value;
 
       // show loading spinner...
       render_spinner('job-list');
