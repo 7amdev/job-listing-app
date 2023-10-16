@@ -1,7 +1,7 @@
 // STATE
 export const state = {
   job_list: [],
-  job_details: {},
+  active_job_item: {},
   current_page_idx: 0,
   sort: '-relevant'
 };

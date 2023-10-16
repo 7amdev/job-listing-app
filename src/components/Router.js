@@ -1,7 +1,3 @@
-import render_job_details from "./JobDetails.js";
-import render_job_list from "./JobList.js";
-import render_spinner from "./Spinner.js";
-import render_pagination from "./Pagination.js";
 import { 
   state, 
   job_results_count_el, 
@@ -11,6 +7,11 @@ import {
   API_BASE_URL,
   APP_BASE_URL
 } from "../common.js";
+import render_job_details from "./JobDetails.js";
+import render_job_list from "./JobList.js";
+import render_spinner from "./Spinner.js";
+import render_pagination from "./Pagination.js";
+import render_error from "./Error.js";
 
 
 const navigate_to = function (path) {
@@ -85,7 +86,6 @@ const routes = [
   { 
     path: "/jobs/:id", 
     render: async function (params, query) {
-      console.log('/jobs/:id', params, query);
       const { id } = params;
 
       job_details_content_el.innerHTML = '';
@@ -101,15 +101,15 @@ const routes = [
         }
       
         // UPDATE STATE
-        state.job_details = data;
+        state.active_job_item = data;
 
         // UPDATE UI
         render_spinner('job-details');
         render_job_details();
       } catch(error) {
-        console.warn(error);
         render_spinner('job-details');
         render_error(error.message);
+        console.warn(error);
       };
     },
     title: "Job details",

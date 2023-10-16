@@ -2,7 +2,7 @@ import { state, job_details_content_el } from '../common.js';
 
 
 const render_job_details = function () {
-  const { job_details: data } = state;
+  const { active_job_item: data } = state;
 
   const job_details_content_markup = 
     `<img src="${data.coverImgURL}" class="job-details__img" alt="office smile coworking">
@@ -55,9 +55,11 @@ const render_job_details = function () {
           </div>
           <div class="qualification__col-right qualification__skills">
             ${
+              data.qualifications && 
               data.qualifications.map(function (qualification) {
                 return `<p class="skill-tag">${qualification}</p>`;
-              }).join('')
+              }).join('') ||
+              ''
             }
           </div>
         </div>
@@ -71,9 +73,11 @@ const render_job_details = function () {
           </div>
           <div class="reviews__col-right">
             ${
+              data.reviews &&
               data.reviews.map(function (review) {
                 return `<p class="review-quote">${review}</p>`;
-              }).join('')
+              }).join('') ||
+              ''
             }
           </div>
         </div>

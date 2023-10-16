@@ -41,10 +41,12 @@ const render_job_list = function () {
 
   results = results.slice(range_start, range_end);
 
+  const { id: active_job_item_id } = state.active_job_item;
+
   results.forEach(function (job_item, index) {
     const job_post_markup = 
       `<li class="job-post-list__item">
-          <a href="#/jobs/${job_item.id}" class="job-post">
+          <a href="#/jobs/${job_item.id}" class="job-post ${ job_item.id === active_job_item_id ? 'job-post--active' : ''}">
             <p class="badge badge--${(index) % 4 + 1}">${job_item.badgeLetters}</p>
             <div class="job-post__content">
               <h4 class="job-post__title">${job_item.title}</h4>
@@ -80,7 +82,6 @@ const render_job_list = function () {
 const job_post_list_click_handler =  async function (event) {
   const job_post_clicked = event.target.closest('.job-post');
   const job_posts = job_post_list_el.querySelectorAll('.job-post');
-  const job_post_id = job_post_clicked?.getAttribute('href').slice(1);
   
   job_posts.forEach(function (job_post) {
     job_post.classList.remove('job-post--active');
