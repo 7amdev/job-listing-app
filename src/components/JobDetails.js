@@ -56,9 +56,13 @@ const render_job_details = function () {
           <div class="qualification__col-right qualification__skills">
             ${
               data.qualifications && 
-              data.qualifications.map(function (qualification) {
-                return `<p class="skill-tag">${qualification}</p>`;
-              }).join('') ||
+              (
+                data.qualifications
+                  .map(function (qualification) {
+                    return `<p class="skill-tag">${qualification}</p>`;
+                  })
+                  .join('')
+              ) ||
               ''
             }
           </div>

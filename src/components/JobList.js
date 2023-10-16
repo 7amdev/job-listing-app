@@ -3,9 +3,6 @@ import {
   job_post_list_el,
   ITEMS_PER_PAGE
 } from "../common.js";
-import render_spinner from "./Spinner.js";
-import render_error from "./Error.js";
-import render_job_details from "./JobDetails.js";
 
 const render_job_list = function () {
 
