@@ -2,10 +2,7 @@ import {
   search_el,
   search_input_el
 } from "../common.js";
-import render_spinner from "./Spinner.js";
 import render_error from './Error.js'
-import render_job_list from "./JobList.js";
-import render_pagination from "./Pagination.js";
 import { navigate_to } from "./Router.js";
 
 const search_form_submit_handler = async function (event) {
