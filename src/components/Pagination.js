@@ -19,7 +19,6 @@ const render_pagination = function () {
   }
 
   if (number_of_pages > 0) {
-    // pagination_next_btn_description.textContent = `Page ${state.current_page_idx}`;
     pagination_prev_btn_el.classList.remove('pagination__button--visible');
     pagination_next_btn_el.classList.add('pagination__button--visible');
     pagination_next_btn_description.textContent = `Page ${state.current_page_idx + 2}`;
@@ -33,13 +32,11 @@ const click_handler = function (event) {
   const next_page_action = current_el.closest('.pagination__button')?.className.includes('--next');
   const number_of_pages = calculate_number_of_pages(state.job_list.length);
 
-  console.log(state.current_page_idx, number_of_pages);
-
   if (state.current_page_idx <= 0) {
     pagination_prev_btn_el.classList.remove('pagination__button--visible');
   }
 
-  if (state.current_page_idx <= number_of_pages) {
+  if (state.current_page_idx < number_of_pages) {
     pagination_next_btn_el.classList.add('pagination__button--visible');
   }
 
