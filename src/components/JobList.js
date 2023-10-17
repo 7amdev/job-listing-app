@@ -19,7 +19,8 @@ const render_job_list = function (container = 'job_post_list') {
   );
   
   // job_post_list_el.innerHTML = '';
-  view_container.innerHTML = '';
+  if (container === 'job_post_list')
+    view_container.innerHTML = '';
 
   // FILTER
 
