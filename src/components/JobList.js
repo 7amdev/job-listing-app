@@ -32,8 +32,8 @@ const job_list_item_markup = function (data, index) {
             </ul>
           </div>
           <div class="job-post__meta">
-            <button class="bookmark">
-              <i class="fa-solid fa-bookmark bookmark__icon"></i>
+            <button class="job-post__bookmark">
+              <i class="fa-solid fa-bookmark job-post__bookmark-icon"></i>
             </button>
             <p class="job-post__date">${data.daysAgo}d</p>
           </div>

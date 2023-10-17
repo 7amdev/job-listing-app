@@ -359,6 +359,15 @@ input {
   text-align: end;
   font-size: 10px;
 }
+.job-post__bookmark {
+  font-size: 14px;
+  color: #d6dbe0;
+  margin-bottom: 4px;
+}
+.job-post__bookmark--xl {
+  font-size: 18px;
+  margin: initial;
+}
 .job-details__date,
 .job-post__date {
   font-size: 10px;
@@ -369,15 +378,6 @@ input {
 .job-post__date--md {
   font-size: 12px;
   font-weight: 600;
-}
-.bookmark {
-  font-size: 14px;
-  color: #d6dbe0;
-  margin-bottom: 4px;
-}
-.bookmark--xl {
-  font-size: 18px;
-  margin: initial;
 }
 
 .pagination {
