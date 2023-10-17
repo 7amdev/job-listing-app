@@ -139,6 +139,11 @@ input {
 .bookmark-dropdown__button:focus {
   color: rgb(216, 237, 255);
 }
+.bookmark-dropdown__button--active {
+  font-weight: 500;
+  transform: scale(1.03);
+  color: rgb(216, 237, 255);;
+}
 /* .bookmark-dropdown__button:focus + .bookmark-dropdown__list {
   opacity: 1;
 } */
