@@ -1,14 +1,25 @@
 import {
   state,
   job_post_list_el,
+  bookmark_dropdown_list,
   ITEMS_PER_PAGE
 } from "../common.js";
 
-const render_job_list = function () {
+const render_job_list = function (container = 'job_post_list') {
 
   let results = [...state.job_list];
+  const view_container = (
+    container === 'bookmark' 
+    ? bookmark_dropdown_list
+    : (
+      container === 'job_post_list'
+      ? job_post_list_el
+      : job_post_list_el
+    )
+  );
   
-  job_post_list_el.innerHTML = '';
+  // job_post_list_el.innerHTML = '';
+  view_container.innerHTML = '';
 
   // FILTER
 
@@ -72,7 +83,8 @@ const render_job_list = function () {
           </a>
         </li>`;
 
-    job_post_list_el.insertAdjacentHTML('beforeend', job_post_markup);
+    // job_post_list_el.insertAdjacentHTML('beforeend', job_post_markup);
+    view_container.insertAdjacentHTML('beforeend', job_post_markup);
   });
 };
 

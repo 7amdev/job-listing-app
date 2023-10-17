@@ -106,6 +106,7 @@ const routes = [
         // UPDATE UI
         render_spinner('job-details');
         render_job_details();
+        render_job_list();  // Room from improvement, performance wise
       } catch(error) {
         render_spinner('job-details');
         render_error(error.message);

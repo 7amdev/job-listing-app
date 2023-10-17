@@ -32,6 +32,9 @@ export const pagination_prev_btn_el = pagination_el.querySelector('.pagination__
 export const pagination_next_btn_el = pagination_el.querySelector('.pagination__button--next');
 export const pagination_next_btn_description = pagination_el.querySelector('.pagination__description--next');
 export const pagination_prev_btn_description = pagination_el.querySelector('.pagination__description--prev');
+export const bookmark_dropdown_el = document.querySelector('.bookmark-dropdown');
+export const bookmark_dropdown_btn_el = bookmark_dropdown_el.querySelector('.bookmark-dropdown__button');
+export const bookmark_dropdown_list = bookmark_dropdown_el.querySelector('.bookmark-dropdown__list');
 
 
 // UTILITY/HELPER FUNCTION

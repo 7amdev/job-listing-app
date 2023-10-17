@@ -4,3 +4,4 @@ import './src/components/JobList.js';
 import './src/components/Sort.js';
 import './src/components/Pagination.js';
 import './src/components/Router.js';
+import './src/components/BookmarkDropdown.js';
