@@ -17,7 +17,7 @@ const render_job_details = function () {
           <p class="badge badge--yellow badge--xl">${data.badgeLetters}</p>
           <div class="job-details__wrapper">
             <p class="job-details__date job-details__date--md">${data.daysAgo}d</p>
-            <button class="job-post__bookmark job-post__bookmark--xl">
+            <button class="bookmark-button bookmark-button--xl">
               <i class="fa-solid fa-bookmark bookmark__icon"></i>
             </button> 
           </div>

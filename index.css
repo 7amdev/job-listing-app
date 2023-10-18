@@ -359,12 +359,20 @@ input {
   text-align: end;
   font-size: 10px;
 }
-.job-post__bookmark {
+.bookmark-button {
   font-size: 14px;
   color: #d6dbe0;
   margin-bottom: 4px;
+  transition: all .2s;
 }
-.job-post__bookmark--xl {
+.bookmark-button:hover,
+.bookmark-button:focus {
+  color: #5284ec;
+}
+.bookmark-button--active {
+  color: #5284ec;
+}
+.bookmark-button--xl {
   font-size: 18px;
   margin: initial;
 }
