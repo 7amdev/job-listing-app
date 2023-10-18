@@ -1,7 +1,6 @@
 import {
   state,
   job_post_list_el,
-  bookmark_dropdown_list,
   ITEMS_PER_PAGE
 } from "../common.js";
 
@@ -9,9 +8,13 @@ const job_list_item_markup = function (data, index) {
 
   const { id: active_job_item_id } = state.active_job_item;
 
+  const is_bookmarked = state.bookmarks.some(function (bookmark) {
+    return bookmark.id === data.id;
+  });
+
   const markup = 
     `<li class="job-post-list__item">
-        <a href="#/jobs/${data.id}" class="job-post ${ data.id === active_job_item_id ? 'job-post--active' : ''}">
+        <a href="#/jobs/${data.id}" data-id="${data.id}" class="job-post ${ data.id === active_job_item_id ? 'job-post--active' : ''}">
           <p class="badge badge--${(index) % 4 + 1}">${data.badgeLetters}</p>
           <div class="job-post__content">
             <h4 class="job-post__title">${data.title}</h4>
@@ -23,7 +26,7 @@ const job_list_item_markup = function (data, index) {
               </li>
               <li class="job-post__salary">
                 <i class="fa-solid fa-money-bill job-post__icon"></i>
-                $${data.salary}
+                ${data.salary}
               </li>
               <li class="job-post__location">
                 <i class="fa-solid fa-location-dot job-post__icon"></i>
@@ -32,7 +35,7 @@ const job_list_item_markup = function (data, index) {
             </ul>
           </div>
           <div class="job-post__meta">
-            <button class="bookmark-button">
+            <button class="bookmark-button ${is_bookmarked ? 'bookmark-button--active' : ''}">
               <i class="fa-solid fa-bookmark bookmark-button__icon"></i>
             </button>
             <p class="job-post__date">${data.daysAgo}d</p>
@@ -86,14 +89,41 @@ const render_job_list = function (container = 'job_post_list') {
 
 const job_post_list_click_handler =  async function (event) {
   const job_post_clicked = event.target.closest('.job-post');
+  const bookmark_button_el = job_post_clicked.querySelector('.bookmark-button');
   const job_posts = job_post_list_el.querySelectorAll('.job-post');
-  
+  const bookmark_action = event.target.className.includes('bookmark-button');
+
+  { if (!bookmark_action) return;
+    const { id } = job_post_clicked.dataset;
+    const bookmark_found = state.bookmarks.find(function (bookmark) {
+      return bookmark.id === +id;
+    });
+
+    if (bookmark_found) {
+      state.bookmarks = state.bookmarks.filter(function (bookmark) {
+        return bookmark.id !== bookmark_found.id;
+      });
+
+      bookmark_button_el.classList.remove('bookmark-button--active');
+      bookmark_button_el.blur();
+    }
+
+    if (!bookmark_found) {
+      const active_item = state.job_list.find(function (job_item) {
+        return job_item.id === +id;
+      });
+
+      state.bookmarks.push(active_item);
+    }
+  }
+
   job_posts.forEach(function (job_post) {
     job_post.classList.remove('job-post--active');
   });
 
   job_post_clicked?.blur();
   job_post_clicked?.classList.add('job-post--active');
+  
 };
 
 job_post_list_el.addEventListener('click', job_post_list_click_handler);

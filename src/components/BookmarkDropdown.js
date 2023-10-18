@@ -1,5 +1,6 @@
 import { 
   state,
+  job_details_content_el,
   bookmark_dropdown_el, 
   bookmark_dropdown_btn_el, 
   bookmark_dropdown_list 
@@ -7,7 +8,16 @@ import {
 import { job_list_item_markup } from "./JobList.js";
 
 const render_bookmarks = function () {
-  if (state.bookmarks.length === 0) return;
+  if (state.bookmarks.length === 0) {
+    bookmark_dropdown_list.innerHTML = 
+      `<p class="bookmark-dropdown__title">
+        Bookmark list
+      </p>
+      <p class="bookmark-dropdown__text">
+        The bookmark list is empty...
+      </p>`;  
+    return;
+  }
   
   bookmark_dropdown_list.innerHTML = '';
   

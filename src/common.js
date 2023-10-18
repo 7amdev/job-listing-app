@@ -2,22 +2,7 @@
 export const state = {
   job_list: [],
   active_job_item: {},
-  bookmarks: [
-    {
-      "id": 5553645680007895,
-      "title": "Frontend Developer - React",
-      "badgeLetters": "AS",
-      "company": "AT Security",
-      "duration": "Full-Time",
-      "salary": "$85,000+",
-      "location": "Global",
-      "relevanceScore": 2998,
-      "daysAgo": 4,
-      "coverImgURL": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1272&h=348&q=100",
-      "companyURL": "https://fictionalatsecuritywebsite.com",
-      "description": "Are you passionate about building software that makes a difference? Do you enjoy collaboration with a team of fun and smart creative people?"
-  }
-  ],
+  bookmarks: [],
   current_page_idx: 0,
   sort: '-relevant'
 };
