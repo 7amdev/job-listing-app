@@ -29,6 +29,7 @@ const render_bookmarks = function () {
 
 const dropdown_btn_mouseenter_handler = function (event) {
   bookmark_dropdown_list.classList.add('bookmark-dropdown__list--active');
+  bookmark_dropdown_list.classList.add('bookmark-dropdown__list--clickable');
 
   render_bookmarks();
 };
@@ -39,6 +40,7 @@ const dropdown_list_mouseenter_handler = function (event) {
 const dropdown_list_mouseleave_handler = function (event) {
   bookmark_dropdown_list.classList.remove('bookmark-dropdown__list--active');
   bookmark_dropdown_btn_el.classList.remove('bookmark-dropdown__button--active');
+  bookmark_dropdown_list.classList.remove('bookmark-dropdown__list--clickable');
 };
 
 bookmark_dropdown_btn_el.addEventListener('mouseenter', dropdown_btn_mouseenter_handler);

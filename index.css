@@ -180,7 +180,7 @@ input {
   min-width: 345px;
   pointer-events: none;
 }
-.bookmark-dropdown:hover > .bookmark-dropdown__list {
+.bookmark-dropdown__list--clickable {
   pointer-events: auto;
 }
 .bookmark-dropdown__list--active {
