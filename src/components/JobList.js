@@ -3,7 +3,10 @@ import {
   job_post_list_el,
   ITEMS_PER_PAGE
 } from "../common.js";
-import { bookmark_button_markup, bookmark_button_click_handler } from "./BookmarkButton.js";
+import { 
+  bookmark_button_markup, 
+  bookmark_button_click_handler 
+} from "./BookmarkButton.js";
 
 const job_list_item_markup = function (data, index) {
 
@@ -84,11 +87,10 @@ const render_job_list = function (container = 'job_post_list') {
 
 const job_post_list_click_handler =  async function (event) {
   const job_post_clicked = event.target.closest('.job-post');
-  const bookmark_button_el = job_post_clicked.querySelector('.bookmark-button');
   const job_posts = job_post_list_el.querySelectorAll('.job-post');
   const bookmark_action = event.target.className.includes('bookmark-button');
 
-  { if (!bookmark_action) return;
+  if (bookmark_action) {
     const { id } = job_post_clicked.dataset;
     const active_item = state.job_list.find(function (job_item) {
       return job_item.id === +id;
