@@ -20,24 +20,24 @@ const bookmark_button_click_handler = function (job_item, parent_el) {
   const bookmark_found = state.bookmarks.find(function (bookmark) {
     return bookmark.id === job_item.id;
   });
+  const bookmark_buttons = document.querySelectorAll(`.bookmark-button[data-ref='${job_item.id}']`);
 
   if (bookmark_found) {
     state.bookmarks = state.bookmarks.filter(function (bookmark) {
       return bookmark.id !== bookmark_found.id;
     });
-
-    bookmark_button_el.classList.remove('bookmark-button--active');
+    
+    bookmark_buttons.forEach(function (bookmark_btn) {
+      bookmark_btn.classList.remove('bookmark-button--active');
+    });
     bookmark_button_el.blur();
+
+    return;
   }
 
-  if (!bookmark_found)  {
-    state.bookmarks.push(job_item);
-    bookmark_button_el.classList.add('bookmark-button--active');
-  }
+  state.bookmarks.push(job_item);
 
-  const bookmark_buttons = document.querySelectorAll(`.bookmark-button[data-ref='${job_item.id}']`);
   bookmark_buttons.forEach(function (bookmark_btn) {
-    if (bookmark_btn.className.includes('bookmark-button--active')) return;
     bookmark_btn.classList.add('bookmark-button--active');
   });
 };
