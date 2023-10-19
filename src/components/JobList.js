@@ -3,14 +3,11 @@ import {
   job_post_list_el,
   ITEMS_PER_PAGE
 } from "../common.js";
+import { bookmark_button_markup, bookmark_button_click_handler } from "./BookmarkButton.js";
 
 const job_list_item_markup = function (data, index) {
 
   const { id: active_job_item_id } = state.active_job_item;
-
-  const is_bookmarked = state.bookmarks.some(function (bookmark) {
-    return bookmark.id === data.id;
-  });
 
   const markup = 
     `<li class="job-post-list__item">
@@ -35,9 +32,7 @@ const job_list_item_markup = function (data, index) {
             </ul>
           </div>
           <div class="job-post__meta">
-            <button class="bookmark-button ${is_bookmarked ? 'bookmark-button--active' : ''}">
-              <i class="fa-solid fa-bookmark bookmark-button__icon"></i>
-            </button>
+            ${ bookmark_button_markup(data.id) }
             <p class="job-post__date">${data.daysAgo}d</p>
           </div>
         </a>
@@ -95,26 +90,11 @@ const job_post_list_click_handler =  async function (event) {
 
   { if (!bookmark_action) return;
     const { id } = job_post_clicked.dataset;
-    const bookmark_found = state.bookmarks.find(function (bookmark) {
-      return bookmark.id === +id;
+    const active_item = state.job_list.find(function (job_item) {
+      return job_item.id === +id;
     });
 
-    if (bookmark_found) {
-      state.bookmarks = state.bookmarks.filter(function (bookmark) {
-        return bookmark.id !== bookmark_found.id;
-      });
-
-      bookmark_button_el.classList.remove('bookmark-button--active');
-      bookmark_button_el.blur();
-    }
-
-    if (!bookmark_found) {
-      const active_item = state.job_list.find(function (job_item) {
-        return job_item.id === +id;
-      });
-
-      state.bookmarks.push(active_item);
-    }
+    bookmark_button_click_handler(active_item, job_post_clicked);
   }
 
   job_posts.forEach(function (job_post) {

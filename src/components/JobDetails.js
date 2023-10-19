@@ -1,13 +1,10 @@
 import { state, job_details_content_el } from '../common.js';
+import { bookmark_button_markup, bookmark_button_click_handler } from './BookmarkButton.js'
 
 
 const render_job_details = function () {
   const { active_job_item: data } = state;
   
-  const is_bookmarked = state.bookmarks.some(function (bookmark) {
-    return bookmark.id === data.id;
-  });
-
   const job_details_content_markup = 
     `<img src="${data.coverImgURL}" class="job-details__img" alt="office smile coworking">
 
@@ -21,9 +18,7 @@ const render_job_details = function () {
           <p class="badge badge--yellow badge--xl">${data.badgeLetters}</p>
           <div class="job-details__wrapper">
             <p class="job-details__date job-details__date--md">${data.daysAgo}d</p>
-            <button class="bookmark-button bookmark-button--xl ${ is_bookmarked ? 'bookmark-button--active' : ''}">
-              <i class="fa-solid fa-bookmark bookmark-button__icon"></i>
-            </button> 
+            ${ bookmark_button_markup(data.id, { style_xl: true }) }
           </div>
         </div>
         <div class="job-details__col-right">
@@ -99,32 +94,12 @@ const render_job_details = function () {
 const click_handler = function (event) {
   const clicked_el = event.target;
   const job_details_content_el = clicked_el.closest('.job-details__content');
-  const bookmark_button_el = job_details_content_el.querySelector('.bookmark-button');
   const bookmark_action = clicked_el.className.includes('bookmark-button');
 
   if (!bookmark_action) return;
     
-  const bookmark_found = state.bookmarks.find(function (bookmark) {
-    return bookmark.id === state.active_job_item.id;
-  });
+  bookmark_button_click_handler(state.active_job_item, job_details_content_el);
 
-  if (bookmark_found) {
-    state.bookmarks = state.bookmarks.filter(function (bookmark) {
-      return bookmark.id !== bookmark_found.id;
-    });
-
-    bookmark_button_el.classList.remove('bookmark-button--active');
-    bookmark_button_el.blur();
-  }
-
-  if (!bookmark_found) {
-    delete state.active_job_item.qualifications;
-    delete state.active_job_item.reviews;
-
-    state.bookmarks.push(state.active_job_item);
-
-    bookmark_button_el.classList.add('bookmark-button--active');
-  }
 };
 
 job_details_content_el.addEventListener('click', click_handler);
