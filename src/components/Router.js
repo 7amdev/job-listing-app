@@ -15,7 +15,8 @@ import render_error from "./Error.js";
 
 
 const navigate_to = function (path) {
-  window.location.href = `${APP_BASE_URL}/#${path}`;
+  // window.location.href = `${APP_BASE_URL}/#${path}`;
+  window.location.href = `#${path}`;
 };
 
 const routes = [
