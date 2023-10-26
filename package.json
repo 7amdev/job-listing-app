@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "api": "json-server --watch db.json",
-    "build": "webpack"
+    "build:development": "webpack --mode development",
+    "build:production": "webpack --mode production",
+    "dev": "webpack serve --mode development" 
   },
   "browserslist": [
     ">0.2%"
@@ -27,6 +29,7 @@
     "postcss-loader": "^7.3.3",
     "postcss-pxtorem": "^6.0.0",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }

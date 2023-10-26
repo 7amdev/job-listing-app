@@ -9,6 +9,9 @@ module.exports = {
   output: {
     filename: 'main.js'
   },
+  devServer: {
+    static: './dist'
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'main.css'
