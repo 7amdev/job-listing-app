@@ -1,6 +1,7 @@
 const express     = require('express');
 const body_parser = require('body-parser');
 const path        = require('path');
+const { result } = require('lodash');
 
 const app = express();
 
@@ -430,12 +431,56 @@ app.use(body_parser.json());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/jobs', function (req, res) {
-  const results = [...jobs];
+  const { q, sort, offset = 1, limit = 7 } = req.query; 
+  
+  let results = [...jobs];
+  let sort_arr = sort && sort.split[','] || [];
+
+  // FILTER / queryString
+  if (q) {
+    results = results.filter(function (job) {
+      return job.title.toLocaleLowerCase().includes(q.toLocaleLowerCase());
+    });
+  }
+
+  // SORT
+  if (sort_arr.includes('+score')) {
+    results = results.toSorted(function (a, b) {
+      if (a.relevanceScore > b.relevanceScore) return  1;
+      if (a.relevanceScore < b.relevanceScore) return -1;
+      return 0;
+    });
+  } 
+  if (sort_arr.includes('-score')) {
+    results = results.toSorted(function (a, b) {
+      if (a.relevanceScore < b.relevanceScore) return  1;
+      if (a.relevanceScore > b.relevanceScore) return -1;
+      return 0;
+    });
+  }
+  if (sort_arr.includes('+days_ago')) {
+    results = results.toSorted(function (a, b) {
+      if (a.daysAgo > b.daysAgo) return  1;
+      if (a.daysAgo < b.daysAgo) return -1;
+      return 0;
+    });
+  }
+  if (sort_arr.includes('-days_ago')) {
+    results = results.toSorted(function (a, b) {
+      if (a.daysAgo < b.daysAgo) return  1;
+      if (a.daysAgo > b.daysAgo) return -1;
+      return 0;
+    });
+  }  
 
   // PAGINATION
-  // FILTER / queryString
-  // SORT
-  res.json(jobs);
+  const range_start = (offset - 1) * limit;
+  const range_end   = range_start + limit;
+
+  results = results.slice(range_start, range_end);
+  
+  res.setHeader('x-total-count', jobs.length);
+  res.json(results);
 });
 
 app.get('/jobs/:id', function (req, res) {
