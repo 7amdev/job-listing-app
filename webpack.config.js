@@ -10,7 +10,13 @@ module.exports = {
     filename: 'main.js'
   },
   devServer: {
-    static: './dist'
+    static: './dist',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5005',
+        pathRewrite: { '^/api': '' }
+      }
+    }
   },
   plugins: [
     new MiniCssExtractPlugin({
