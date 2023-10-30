@@ -1,7 +1,6 @@
 const express     = require('express');
 const body_parser = require('body-parser');
 const path        = require('path');
-const { result } = require('lodash');
 
 const app = express();
 
@@ -432,41 +431,41 @@ app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/jobs', function (req, res) {
   const { q, sort, offset = 1, limit = 7 } = req.query; 
-  
   let results = [...jobs];
-  let sort_arr = sort && sort.split[','] || [];
-
+  let sort_arr = sort && sort.split(',') || [];
+ 
   // FILTER / queryString
   if (q) {
     results = results.filter(function (job) {
       return job.title.toLocaleLowerCase().includes(q.toLocaleLowerCase());
     });
   }
+  res.setHeader('x-total-count', results.length);
 
   // SORT
   if (sort_arr.includes('+score')) {
-    results = results.toSorted(function (a, b) {
+    results = results.sort(function (a, b) {
       if (a.relevanceScore > b.relevanceScore) return  1;
       if (a.relevanceScore < b.relevanceScore) return -1;
       return 0;
     });
   } 
   if (sort_arr.includes('-score')) {
-    results = results.toSorted(function (a, b) {
+    results = results.sort(function (a, b) {
       if (a.relevanceScore < b.relevanceScore) return  1;
       if (a.relevanceScore > b.relevanceScore) return -1;
       return 0;
     });
   }
   if (sort_arr.includes('+days_ago')) {
-    results = results.toSorted(function (a, b) {
+    results = results.sort(function (a, b) {
       if (a.daysAgo > b.daysAgo) return  1;
       if (a.daysAgo < b.daysAgo) return -1;
       return 0;
     });
   }
   if (sort_arr.includes('-days_ago')) {
-    results = results.toSorted(function (a, b) {
+    results = results.sort(function (a, b) {
       if (a.daysAgo < b.daysAgo) return  1;
       if (a.daysAgo > b.daysAgo) return -1;
       return 0;
@@ -479,15 +478,19 @@ app.get('/jobs', function (req, res) {
 
   results = results.slice(range_start, range_end);
   
-  res.setHeader('x-total-count', jobs.length);
   res.json(results);
 });
 
 app.get('/jobs/:id', function (req, res) {
   const { id } = req.params; 
-  const job = {};
 
-  console.log(`/job/${id}`);
+  const job = jobs.find(function (item) {
+    return item.id === +id;
+  });
+
+  if (!job) {
+    return res.status(404).json({ error: `Resource with id: ${id} not found!`});
+  }
 
   res.json(job);
 });

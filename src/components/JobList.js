@@ -53,24 +53,24 @@ const render_job_list = function (container = 'job_post_list') {
   // FILTER
 
   // SORT 
-  if (state.sort === '-relevant') {
-    results = results.sort(function (a, b) {
-      // Descending Order
-      if (a.relevanceScore > b.relevanceScore) return -1;
-      else if (a.relevanceScore < b.relevanceScore) return 1;
+  // if (state.sort === '-relevant') {
+  //   results = results.sort(function (a, b) {
+  //     // Descending Order
+  //     if (a.relevanceScore > b.relevanceScore) return -1;
+  //     else if (a.relevanceScore < b.relevanceScore) return 1;
   
-      return 0;
-    });    
-  }   
+  //     return 0;
+  //   });    
+  // }   
 
-  if (state.sort === '+recent') {
-    results = results.sort(function (a, b) {
-      if (a.daysAgo > b.daysAgo) return 1;
-      else if (a.daysAgo < b.daysAgo) return -1;
+  // if (state.sort === '+recent') {
+  //   results = results.sort(function (a, b) {
+  //     if (a.daysAgo > b.daysAgo) return 1;
+  //     else if (a.daysAgo < b.daysAgo) return -1;
 
-      return 0;
-    });
-  } 
+  //     return 0;
+  //   });
+  // } 
 
   // PAGINATION
   const range_start = state.current_page_idx * ITEMS_PER_PAGE;

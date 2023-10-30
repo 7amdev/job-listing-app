@@ -15,7 +15,6 @@ import render_error from "./Error.js";
 
 
 const navigate_to = function (path) {
-  // window.location.href = `${APP_BASE_URL}/#${path}`;
   window.location.href = `#${path}`;
 };
 
@@ -32,6 +31,7 @@ const routes = [
   {
     path: "/jobs",
     render: async function (params, query) {
+      console.log(query.toString(), params);
       const search_input_value = query.get('q');
 
       // Set input search element value
@@ -43,7 +43,7 @@ const routes = [
       try {
 
         // fetch call
-        const response = await fetch(`${API_BASE_URL}/jobs?q=${search_input_value}`);
+        const response = await fetch(`${API_BASE_URL}/jobs?${query.toString()}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -147,7 +147,7 @@ const convert_route_path_to_regex = function (path) {
 const router = function (event) {
   if (!location.hash) return;
   
-  const current_location = location.hash.slice(1);
+  const url_location = location.hash.slice(1);
 
   const potential_matches = routes.map(function (route) {
     const path_rx = convert_route_path_to_regex(route.path);
@@ -155,7 +155,7 @@ const router = function (event) {
     return (
       {
         ...route, 
-        is_match: path_rx.test(current_location),
+        is_match: path_rx.test(url_location),
         path_rx: path_rx
       }
     );
@@ -171,23 +171,33 @@ const router = function (event) {
   document.title = match.title;
   document.querySelector('meta[name="description"]').setAttribute('content', match.description);
 
+  const url_parsed = match.path_rx.exec(url_location);
   const params_rx = /\/:(\w+)/g;
   const has_params = match.path.match(params_rx);
+  const params = {};
   let params_names = [];
   if (has_params) {
     params_names = match.path.match(params_rx).map(function (param) {
       return param.substring(2);
     });
+
+    for (let i = 0; i < params_names.length; i++) {
+      params[params_names[i]] = url_parsed[i+1];
+    } 
   }
-  
-  const params_values = match.path_rx.exec(current_location);
-  const query = params_values[params_values.length-1];
-  const params = {};
-  for (let i = 0; i < params_names.length; i++) {
-    params[params_names[i]] = params_values[i+1];
-  } 
     
-  match.render(params, new URLSearchParams(query));
+  const query = url_parsed[url_parsed.length-1];
+
+  // [link] https://stackoverflow.com/questions/59889140/different-output-from-encodeuricomponent-vs-urlsearchparams
+  const query_encoded = query?.slice(1).split('&').map(function (query_item) {
+    const result =  query_item.split('=').map(function(s_item) {
+      return encodeURIComponent(s_item);
+    }).join('=');
+
+    return result;
+  }).join('&');
+
+  match.render(params, new URLSearchParams(query_encoded));
 };
 
 // REGISTERING EVENTS
