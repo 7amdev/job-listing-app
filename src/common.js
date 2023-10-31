@@ -1,10 +1,13 @@
 // STATE
 export const state = {
   job_list: [],
+  job_list_count: 0,
   active_job_item: {},
   bookmarks: [],
-  current_page_idx: 0,
-  sort: '-relevant'
+  q: '',
+  offset: 1,
+  limit: 7,
+  sort: '-score'
 };
 
 // CONSTANTS
@@ -39,11 +42,11 @@ export const bookmark_dropdown_list = bookmark_dropdown_el.querySelector('.bookm
 
 
 // UTILITY/HELPER FUNCTION
-export const calculate_number_of_pages = function (list_length) {
-  let pages = Math.floor(list_length / ITEMS_PER_PAGE);
+export const calculate_number_of_pages = function (list_length, limit = ITEMS_PER_PAGE) {
+  let pages = Math.floor(list_length / limit);
   
-  if ((list_length % ITEMS_PER_PAGE) === 0)
-    pages -= 1;
+  // if ((list_length % limit) === 0)
+  //   pages -= 1;
 
   return pages;
 };

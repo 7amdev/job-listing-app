@@ -4,8 +4,7 @@ import {
   job_post_list_el,
   job_details_content_el,
   search_input_el,
-  API_BASE_URL,
-  APP_BASE_URL
+  API_BASE_URL
 } from "../common.js";
 import render_job_details from "./JobDetails.js";
 import render_job_list from "./JobList.js";
@@ -31,7 +30,6 @@ const routes = [
   {
     path: "/jobs",
     render: async function (params, query) {
-      console.log(query.toString(), params);
       const search_input_value = query.get('q');
 
       // Set input search element value
@@ -51,17 +49,18 @@ const routes = [
         }
 
         // -- UPDATE STATE
-        state.job_list = data;
-        state.current_page_idx = 0;
-        state.sort = '-relevant';
+        state.job_list        = data;
+        state.job_list_count  = +response.headers.get('x-total-count');
+        state.q               = query.get('q');
+        state.offset          = +query.get('offset') || state.offset;
+        state.sort            = +query.get('sort') || state.sort;
 
         // -- UPDATE UI
-
         // hide spinner
         render_spinner('job-list');
 
         // render # of results 
-        job_results_count_el.textContent = state.job_list.length;
+        job_results_count_el.textContent = state.job_list_count;
 
         // clear job list
         job_post_list_el.innerHTML = '';

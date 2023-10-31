@@ -1,7 +1,6 @@
 import {
   state,
-  job_post_list_el,
-  ITEMS_PER_PAGE
+  job_post_list_el
 } from "../common.js";
 import { 
   bookmark_button_markup, 
@@ -73,10 +72,10 @@ const render_job_list = function (container = 'job_post_list') {
   // } 
 
   // PAGINATION
-  const range_start = state.current_page_idx * ITEMS_PER_PAGE;
-  const range_end   = range_start + ITEMS_PER_PAGE;
+  // const range_start = state.offset * state.limit;
+  // const range_end   = range_start + state.limit;
 
-  results = results.slice(range_start, range_end);
+  // results = results.slice(range_start, range_end);
 
   results.forEach(function (job_item, index) {
     const job_post_markup = job_list_item_markup(job_item, index);
@@ -111,7 +110,4 @@ const job_post_list_click_handler =  async function (event) {
 job_post_list_el.addEventListener('click', job_post_list_click_handler);
 
 export default render_job_list;
-
-export {
-  job_list_item_markup
-};
+export { job_list_item_markup };

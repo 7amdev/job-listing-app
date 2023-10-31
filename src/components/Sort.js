@@ -4,7 +4,7 @@ import {
   filter_recent_btn_el, 
   filter_relevant_btn_el 
 } from "../common.js";
-import render_job_list from "./JobList.js";
+import { navigate_to } from "./Router.js";
 
 const sort_by_relevance = function () {
   if (filter_relevant_btn_el.classList.contains('filter__button--active')) 
@@ -15,7 +15,7 @@ const sort_by_relevance = function () {
   filter_relevant_btn_el.classList.add('filter__button--active');
 
   // UPDATES STATE
-  state.sort = '-relevant';
+  state.sort = '-score';
 
 };
 
@@ -28,7 +28,7 @@ const sort_by_recent = function () {
   filter_recent_btn_el.classList.add('filter__button--active');
 
   // UPDATE STATE
-  state.sort = '+recent';
+  state.sort = '-days_ago';
 };
 
 filter_el.addEventListener('click', function (event) {
@@ -43,6 +43,7 @@ filter_el.addEventListener('click', function (event) {
 
   if (sort_by_recent_action) sort_by_recent();
 
+  navigate_to(`/jobs?q=${state.q}&offset=${state.offset}&sort=${state.sort}`);
   // RENDER
-  render_job_list();
+  // render_job_list();
 });

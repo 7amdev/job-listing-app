@@ -24,7 +24,7 @@ const search_form_submit_handler = async function (event) {
   }
 
 
-  navigate_to(`/jobs?q=${search_input_value}&sort=+score`);
+  navigate_to(`/jobs?q=${search_input_value}&sort=-score`);
  
 };
 
