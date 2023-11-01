@@ -13,6 +13,12 @@ import { navigate_to } from "./Router.js";
 const render_pagination = function () {
   const number_of_pages = calculate_number_of_pages(state.job_list_count, state.limit);
 
+  if (number_of_pages < 1) {
+    pagination_prev_btn_el.classList.remove('pagination__button--visible');
+    pagination_next_btn_el.classList.remove('pagination__button--visible');
+    return;
+  }
+
   if (state.offset <= 1) {
     pagination_prev_btn_el.classList.remove('pagination__button--visible');
     pagination_next_btn_el.classList.add('pagination__button--visible');

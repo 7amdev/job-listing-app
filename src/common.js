@@ -45,8 +45,8 @@ export const bookmark_dropdown_list = bookmark_dropdown_el.querySelector('.bookm
 export const calculate_number_of_pages = function (list_length, limit = ITEMS_PER_PAGE) {
   let pages = Math.floor(list_length / limit);
   
-  // if ((list_length % limit) === 0)
-  //   pages -= 1;
+  if ((list_length % limit && list_length > limit) > 0)
+    pages += 1;
 
   return pages;
 };
